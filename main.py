@@ -31,13 +31,6 @@ def store(extracted):
                    (band, city, date))
     connection.commit()
 
-
-def read():
-    with open("data.txt", "r") as file:
-        content = file.read()
-    return content
-
-
 def readDB(extracted):
     cursor = connection.cursor()
     row = extracted.split(",")
@@ -67,9 +60,9 @@ From: Scrapping APP
 """
                 message = message.encode('utf-8')
                 send_email(message)
-                print(f"Evento: {extracted} INCLUIDO")
+                print(f"Next Tour: {extracted} sent it")
             else:
-                print(f"Evento: {extracted} REPETIDO")
+                print(f"Tour: {extracted} already reported")
         else:
-            print("No upcoming tours")
+            print("No upcoming Tours")
         time.sleep(2)
